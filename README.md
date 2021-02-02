@@ -14,4 +14,4 @@
 - Can't "open" the serialized data with a  text editor (because it's compressed and serialised)
 
 #### How is Protocol Buffer Used? To share data across languages
-![alt text](https://i.ibb.co/yBYgcbM/protocol-Buffer.png?raw=true)
+![alt text](https://i.ibb.co/hHKNHbJ/protocol-Buffer.png?raw=true)
