@@ -8,6 +8,7 @@ message Person {
     bool is_profile_verified = 5;
     float height = 6;
 
+    // a list of phone numbers, optional
     repeated string phone_number = 7;
 }
 
@@ -19,4 +20,15 @@ Repeated Fields
 - The list can take any number (0 or more) of elements
   you want
 - The opposite of repeated is "singular" (we don't write it)
+
+Default Values for fields
+
+- All fields, if not specified or unknown, will take a default value
+
+boolean: false
+number: 0
+string: empty string
+bytes: empty bytes
+enum: first value
+repeated: empty list
 */
