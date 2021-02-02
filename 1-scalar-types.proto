@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+message Person {
+    int32 age = 1;
+    string first_name = 2;
+    string last_name = 3;
+    bytes small_picture = 4;
+    bool is_profile_verified = 5;
+    float height = 6;
+}
+
+/*
+Scalar Types 
+Numbers
+
+- Numbers can take various forms based on what values you expect them to have
+float(32bits), double(64bits), int32, int64, uint32, uint64, sint32, sint64, fixed43, fixed64,
+sfixed32, sfixed64
+
+- Boolean can hold true or false
+
+- String represents an arbitraty lenght of text. It is represented as string in Protobuf
+and must always contain UTF-8 encoded or 7-bit ASCII text
+
+- Bytes represents any sequense of byte array. It is represented as bytes in Protobuf and 
+it will be up to you to interpret what these bytes mean
+
+*/
