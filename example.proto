@@ -5,3 +5,16 @@ message myMessage{
     string first_Name = 3;
     bool is_Validated =3;
 }
+
+/*
+Tags
+
+For protobuf the important element is the tag
+
+- Smallest tag : 1
+- Largest tag: 536,870,911
+- Cannot use the numbers 19000 to 19999
+- Tags numbered from 1 to 15 use 1 byte in space, so use them 
+  from frequently populated fields
+- Tags numbered from 16 to 2047 use 2 bytes
+*/
