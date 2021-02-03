@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 // path to .proto starts from the root of the folder
-import "01_Basics/6-date.proto";
+import "8-date-with-package.proto";
 
 package person;
 
@@ -29,7 +29,7 @@ message Person {
     EyeColor eye_color = 8;
 
     // persons' birthdate
-    my.date.Date birthdate = 9;
+    datePkg.Date birthdate = 9;
 
     // define the type Address within Person
     message Address {
