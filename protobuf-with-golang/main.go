@@ -1,12 +1,16 @@
 package main
 
 import (
-	"Protocol-Buffers/protobuf-with-golang/src/simple"
+	simplepb "Protocol-Buffers/protobuf-with-golang/src/simple"
 	"fmt"
 )
 
 func main() {
-	sm := simple.SingleMessage{
+	simple()
+}
+
+func simple() {
+	sm := simplepb.SingleMessage{
 		Id:         1,
 		Name:       "Petros",
 		IsSimple:   true,
