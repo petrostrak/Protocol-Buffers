@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+import "01_Basics/Exercises-2/city.proto";
+
+package street;
+
+message Street {
+    string street_name = 1;
+    cityPkg.City city = 2;
+}
