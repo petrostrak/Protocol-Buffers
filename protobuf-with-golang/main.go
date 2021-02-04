@@ -6,16 +6,39 @@ import (
 	"io/ioutil"
 	"log"
 
+	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
 )
 
 func main() {
 	sm := simple()
-	writeToFile("simple.bin", sm)
+	// writeToFile("simple.bin", sm)
+
+	// sm2 := &simplepb.SingleMessage{}
+	// readFromFile("simple.bin", sm2)
+	// fmt.Println(sm2)
+	smToString := toJSON(sm)
+	fmt.Println(smToString)
 
 	sm2 := &simplepb.SingleMessage{}
-	readFromFile("simple.bin", sm2)
-	fmt.Println(sm2)
+	fromJSON(smToString, sm2)
+	fmt.Println("Successfully created proto struct:", sm2)
+}
+
+func fromJSON(in string, pb proto.Message) {
+	if err := jsonpb.UnmarshalString(in, pb); err != nil {
+		log.Fatalln("Couldn't unmarshal the JSON into the pb struct", err)
+	}
+}
+
+func toJSON(pb proto.Message) string {
+	marshaler := jsonpb.Marshaler{}
+	out, err := marshaler.MarshalToString(pb)
+	if err != nil {
+		log.Fatalln("Can't conver to JSON", err)
+		return ""
+	}
+	return out
 }
 
 func writeToFile(filename string, pb proto.Message) error {
