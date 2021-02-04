@@ -1,6 +1,7 @@
 package main
 
 import (
+	enumpb "Protocol-Buffers/protobuf-with-golang/src/enum_example"
 	simplepb "Protocol-Buffers/protobuf-with-golang/src/simple"
 	"fmt"
 	"io/ioutil"
@@ -23,6 +24,19 @@ func main() {
 	sm2 := &simplepb.SingleMessage{}
 	fromJSON(smToString, sm2)
 	fmt.Println("Successfully created proto struct:", sm2)
+
+	doEnum()
+}
+
+func doEnum() {
+	em := enumpb.EnumMessage{
+		Id:           42,
+		DayOfTheWeek: enumpb.DayOfTheWeek_TUESDAY,
+	}
+
+	// em.DayOfTheWeek = enumpb.DayOfTheWeek_FRIDAY
+
+	fmt.Println(em)
 }
 
 func fromJSON(in string, pb proto.Message) {
