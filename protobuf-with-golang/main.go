@@ -1,6 +1,7 @@
 package main
 
 import (
+	complexpb "Protocol-Buffers/protobuf-with-golang/src/complex"
 	enumpb "Protocol-Buffers/protobuf-with-golang/src/enum_example"
 	simplepb "Protocol-Buffers/protobuf-with-golang/src/simple"
 	"fmt"
@@ -26,6 +27,28 @@ func main() {
 	fmt.Println("Successfully created proto struct:", sm2)
 
 	doEnum()
+
+	doComplex()
+}
+
+func doComplex() {
+	cm := complexpb.ComplexMessage{
+		OneDummy: &complexpb.DummyMessage{
+			Id:   1,
+			Name: "First message",
+		},
+		MultipleDummy: []*complexpb.DummyMessage{
+			&complexpb.DummyMessage{
+				Id:   2,
+				Name: "Second message",
+			},
+			&complexpb.DummyMessage{
+				Id:   3,
+				Name: "Third message",
+			},
+		},
+	}
+	fmt.Println(cm)
 }
 
 func doEnum() {
